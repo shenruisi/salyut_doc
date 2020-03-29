@@ -1,0 +1,67 @@
+site_name: 'Salyut'
+site_author: 'Trico Dev'
+
+copyright: 'Copyright &copy; 2019 Trico'
+theme:
+  name: 'material'
+  feature:
+    tabs: true
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo: './img/icon.png'
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+    - link: 'http://gitlab.taofen8.com/open-source/salyut'
+nav:
+  - Overview: 
+       - 什么是Salyut: 'overview.md'
+  - Getting Started:
+       - 基本语法: 'grammar.md'
+       - 数据类型: 'datatype.md'
+       - 变量: 'var.md'
+       - 运算符: 'operator.md'
+       - 选择器: 
+           - select: 'select.md'
+           - find: 'find.md'
+       - 控件:
+           - fill: 'fill.md'
+           - dropdown: 'dropdown.md' 
+       - 事件处理:
+           - load: 'load.md'
+           - click: 'click.md'
+           - wait: 'wait.md'
+           - switchtemptab: 'switchtemptab.md'
+           - closetemptab: 'closetemptab.md'
+           - addressbar: 'addressbar.md'
+       - 循环:
+           - loop: 'loop.md'
+           - break: 'break.md'
+           - continue: 'continue.md'
+           - return: 'return.md'
+       - 流程控制:
+           - if: 'if.md'
+           - elif: 'elif.md'
+           - else: 'else.md'
+           - then: 'then.md'
+       - 数据处理:
+           - put: 'put.md'
+           - copy: 'copy.md'
+           - remove: 'remove.md'
+           - replace: 'replace.md'
+           - contains: 'contains.md'
+       - 函数:
+           - segment: 'segment.md'
+           - callin: 'callin.md'
+       - 网络请求:
+           - http: 'http.md'
+       - 扩展:
+           - jsonstr: 'jsonstr.md'
+           - jsonobj: 'jsonobj.md'
+           - len: 'len.md'
+           - js: 'js.md'
+           - write: 'write.md'
+       - 打印:
+           - echo: 'echo.md'
