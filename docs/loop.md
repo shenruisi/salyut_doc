@@ -3,7 +3,7 @@
 ## 范式
 ```
 - loop
-    in: { [eles:|values: [, start:][, end:][, step:]][, mutable:][, cond:] }
+    in: { [eles:|values:|targets: [, start:][, end:][, step:]][, mutable:][, cond:][, parent:] }
     each:
 ```
 您可以通过**loop**来进行循环操作
@@ -12,8 +12,10 @@
 | 属性 | 类型 | 是否必须 | 备注 |
 |--------|--------|--------|--------|
 |   eles   | [selector](datatype.md)  | x |   |
+|   targets   | [expr](datatype.md)  | x |  功能与eles相同但支持变量表达式，推荐使用 |
 |   values   | [selector](datatype.md)  | x  |   |
 |   cond   | [expr](datatype.md)  |  x |  loop的执行条件 相当于java的while循环 |
+|   parent   | [expr](datatype.md)  |  x |  在该节点元素下进行循环 |
 |   start   | [number](datatype.md)  |  x | 循环的起始值，Default = 0  |
 |   end   | [number](datatype.md)  |  x | Default = len of input |
 |   step   | [number](datatype.md)  |  x | 迭代步长， Default = 1  |
