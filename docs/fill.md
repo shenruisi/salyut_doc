@@ -19,7 +19,7 @@
 ## 示例
 ```
 - segment:
-    name: '"baidu_test"'
+    name: '"fill_test"'
     body:
     - load: '"https://www.baidu.com"'
     - fill: {ele: '#kw', value: '"新闻"'}
@@ -27,6 +27,6 @@
     - wait: { ele: '#content_left', type: '"presence"' }
     - select: { eles: '.result>.t', path: '/titleList' }
     - return: '$/titleList'
-- callin: { seg: '"baidu_test"' }
+- callin: { seg: '"fill_test"' }
 - echo: '$1'
 ```
