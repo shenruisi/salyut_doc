@@ -16,3 +16,17 @@
 ```yaml
 - fill: { ele: '#input', value: '"hello word!"' }
 ```
+## 示例
+```
+- segment:
+    name: '"baidu_test"'
+    body:
+    - load: '"https://www.baidu.com"'
+    - fill: {ele: '#kw', value: '"新闻"'}
+    - click: {ele: '#su'}
+    - wait: { ele: '#content_left', type: '"presence"' }
+    - select: { eles: '.result>.t', path: '/titleList' }
+    - return: '$/titleList'
+- callin: { seg: '"baidu_test"' }
+- echo: '$1'
+```
