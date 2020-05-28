@@ -2,16 +2,16 @@
 
 ## 范式
 ```
-- callin: { seg: [[, 0:][, 1:][, 2:]...[, 49]|[,args]] }
+- callin: { package: , seg: [, 0:][, 1:][, 2:]...[, 49:] }
 ```
 您可以通过**callin**标签来调用定义好的segment函数
 
 ## 属性
 | 属性 | 类型 | 是否必须 | 备注 |
 |--------|--------|--------|--------|
-|   seg   | [expr](datatype.md)  | √ |   |
-|   0...49   | [expr](datatype.md)  | x  |   |
-|   args   | [expr](datatype.md)  | x | |
+|   package   | [string](datatype.md)  | √ |   |
+|   seg   | [string](datatype.md)  | √ |   |
+|   0...49   | [string](datatype.md) | x  |   |
 
 ## 用法
 ### 调用自定义concat函数
