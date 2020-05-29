@@ -15,5 +15,9 @@
 ## 用法
 ### 数值拷贝
 ```yaml
-- copy: { path: '/result', value:'$/tmp' }
+#>copy示例 
+ - copy: {path: '/name',value: '"trico真棒"'}
+ - echo: '$/name'
+ - copy: {path: '/newName',value: '$/name + ",是真的棒"'}
+ - echo: '$/newName'
 ```

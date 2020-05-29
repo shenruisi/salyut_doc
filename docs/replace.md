@@ -16,5 +16,9 @@
 ## 用法
 ### 字符串替换
 ```yaml
-- replace: { path: '/result', regex:'"hello"', replacement: '"hi"' }
+#>replace示例 
+- copy: {path: '/name',value: '"trico真棒"'}
+- echo: '$/name'
+- replace: {path: '/name',replacement: '"加油"',regex: '"真棒"'}
+- echo: '$/name'
 ```
