@@ -4,57 +4,71 @@
 ```
 - select: { [target:|targets:] [, ele:|eles:], path: [, parent:][, under:][, attr:][, regex:] }
 ```
-您可以通过**select**标签将CSS Selector选中的节点中的文本或属性值放入path中。
+您可以通过**select**标签，获取CSS Selector节点的文本或属性值，并存入path中。
 
 ## 属性
 | 属性 | 类型 | 是否必须 | 备注 |
 |--------|--------|--------|--------|
-|   ele   | [selector](datatype.md)  | x |  与eles属性之间必须出现一个 |
-|   eles   | [selector](datatype.md)  | x  |  与ele属性之间必须出现一个 |
-|   target   | [expr](datatype.md)  | x |  与targets属性之间必须出现一个 与ele功能相同但支持表达式变量，推荐使用 |
-|   targets   | [expr](datatype.md)  | x |  与target属性之间必须出现一个 与eles功能相同但支持表达式变量，推荐使用 |
-|   path   | [path](datatype.md)  |  √ |   |
-|   under   | [selector](datatype.md)  |  x | 通常用于 [**- loop**](loop.md)标签  |
-|   parent   | [expr](datatype.md)  |  x |与under功能相同但支持表达式变量，推荐使用  |
-|   attr   | [expr](datatype.md)  |  x | 如果没有该属性将会返回$null  |
-|   regex   | [expr](datatype.md)  |  x | 例如："(\\\d{4}.\\\d{2}.\\\d{2})"  |
+|   ele   | [selector](datatype.md)  | x |  获取单个元素，与eles属性之间必须出现一个 |
+|   eles  | [selector](datatype.md)  | x  |  获取多个元素，与ele属性之间必须出现一个 |
+|  target | [expr](datatype.md)  | x |  与ele功能相同，但支持表达式（推荐使用） |
+|  targets | [expr](datatype.md) | x |  与eles功能相同，但支持表达式（推荐使用） |
+|   path   | [path](datatype.md)  | √ |  操作结果的存储路径 |
+|  under  | [selector](datatype.md)  |  x | 查找范围，通常用于 [**- loop**](loop.md)标签  |
+|  parent | [expr](datatype.md)  |  x | 与under功能相同，但支持表达式（推荐使用）|
+|  attr  | [expr](datatype.md)  |  x | 获取元素的属性值，如果没有该属性，将返回$null  |
+|  regex  | [expr](datatype.md)  |  x | 对返回结果进行正则过滤  |
 
 ## 用法
-### 选取css selector⾥单个内容存⼊path
+### 获取单个css selector的文本
 ```yaml
-- select: {ele: '#button', path: '/buttonName'}
+- select: {ele: '#button', path: '/buttonText'}
+- select: {target: '"#button-"+"1"', path: '/buttonText'}
 ```
 
-### 选取css selector内所有内容存入path
+### 获取多个css selector的文本
 ```yaml
-- select: {eles: 'div.dd p.info',path: '/arr'}
+- select: {eles: '.title', path: '/titleTextList'}
+- select: {targets: '".title"+"1"', path: '/titleTextList'}
 ```
 
-### 选取css selector里attribute的内容存入path
+### 获取单个css selector的属性值
 ```yaml
-- select: {ele: '#header-strip input',path: '/attr_id',attr: 'id'}
+- select: {ele: '.item a', attr: '"href"', path: '/goodsUrl'}
 ```
 
-### 选取某个节点下的内容
+### 获取正则表达式过滤后的值
+```yaml
+- select: {ele: '.comment', regex: '"(\\d+)"', path: '/commentNum'}
+```
+
+### 获取多个css selector下的文本
 ```yaml
 - loop:
-    in: {eles: 'div.info-wrap'}
+    in: {eles: 'div.item'}
     each:
-      - select: {ele: 'div.dd',path: '/info',under: '$e'}
+      - select: {ele: '.title', under: '$e', path: '/title'}
+      - select: {ele: '.price', parent: '$e', path: '/price'}
 ```
 
 ## 片段样例
 ```yaml
-- load: 'https://news.baidu.com/'
-#do something as you like
-- select: {ele: '#headline-tabs li.active', path: '/R/test1'}
-- select: {eles: '#pane-news ul li a', path: '/R/info'}
-- select: {eles: '#pane-news ul li a', path: '/R/info_url',attr: '"href"'}
-- select: {ele: '#headline-tabs li.active a', path: '/R/test_attr',attr: '"data-control"'}
+- load: '"https://www.taobao.com"'
+- wait: {type: '"presence"', ele: 'body'}
+- find: {ele: '#J_SaleBd'}
+- if: '$1'
+- then:
+	- echo: '"找到目标元素"'
+- else:
+	- echo: '"没有找到目标元素"'
+	- return: '0'
+- js: '"window.scrollTo(0, document.querySelector(\"#J_SaleBd\").offsetTop)"'
+- wait: {type: '"presence"', ele: '#J_SaleBd .item'}
 - loop:
-    in: {eles: '#pane-news ul li'}
-    each:
-      - select: {ele: 'a',under: '$e',path: '/tmp'}
-      - echo: '$/tmp'
-- echo: '$/R'
+	in: {eles: '#J_SaleBd .item'}
+	each:
+		- select: {ele: '.line-1', under: '$e', path: '/temp/title'}
+		- select: {ele: '.line-2 .comment', under: '$e', regex: '"(\\d+)"', path: '/temp/comment'}
+		- copy: { path: '/items[-1]', value: '$/temp'}
+- echo: '$/items'
 ```
