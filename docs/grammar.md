@@ -20,7 +20,6 @@ Salyut遵循YAML语法，并根据YAML语法进行解析。Salyut主要使用YAM
         - wait: {ele: '.op_new_val_screen_result', type: '"presence"'} #fetch the result
         - select: {ele: '.op_new_val_screen_result', path: '/result'}
         - put: { path: '/resultInt', value: '$/result', lambda: 'x -> return parseInt(x)'}
-        - echo: '$/resultInt'
         - return: '$/resultInt'
 - callin: {seg: '"calc"', package: '"baidu"', 0: '"1+1"'} #call the segment named 'calc' and pass the argument '1+1'
 - return: '$1'

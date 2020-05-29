@@ -16,7 +16,7 @@
 ```
 
 ## 示例
-### 使用trico变量,添加dom标签属性,获取返回值
+### 使用变量,添加dom标签属性,获取返回值
 ```yaml
 - segment:
     name: '"testToken"'
