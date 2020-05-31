@@ -14,7 +14,7 @@
 |   eles   | [selector](datatype.md)  | x |   |
 |   targets   | [expr](datatype.md)  | x |  功能与eles相同但支持变量表达式，推荐使用 |
 |   values   | [selector](datatype.md)  | x  |   |
-|   cond   | [expr](datatype.md)  |  x |  loop的执行条件 相当于java的while循环 |
+|   cond   | [expr](datatype.md)  |  x |  loop的执行条件 相当于java的while循环,独立使用无法与eles,targets共用 |
 |   parent   | [expr](datatype.md)  |  x |  在该节点元素下进行循环 |
 |   start   | [number](datatype.md)  |  x | 循环的起始值，Default = 0  |
 |   end   | [number](datatype.md)  |  x | Default = len of input |
@@ -55,9 +55,35 @@
 ## 片段样例
 ```yaml
 - load: '"https://news.baidu.com/"'
+#>遍历节点信息
 - loop:
     in: { eles: '#pane-news ul li' }
     each:
       - select: { ele: 'a', under: '$e', path: '/tmp' }
       - echo: '$/tmp'
+#>遍历节点信息 targets 推荐使用
+- put: {path: '/element',value: '"#pane-news ul li"'}
+- loop:
+    in: { targets: '$/element' }
+    each:
+      - select: { ele: 'a', under: '$e', path: '/tmp' }
+      - echo: '$/tmp'
+#>遍历节点信息 cond条件 cond不可以与targets和其他的公用 只能单独使用相当于while循环语句
+- put: {path: '/count',value: '0'}
+- loop:
+    in: {cond: '$/count < 5' }
+    each:
+      - put: {path: '/count',value: '$i'}
+      - echo: '$i'
+#>遍历节点信息 parent    
+- loop:
+    in: {targets: '"a"',parent: '$/element + ".hdline3"' }
+    each:
+      - select: { ele: '$e', path: '/tmp' }
+      - echo: '$/tmp'
+#>遍历节点信息 start  end  step	
+- loop:
+    in: {start: '0',end: '10',step: '1'}
+    each:
+      - echo: '$i'
 ```

@@ -14,5 +14,8 @@
 ## 用法
 ### 移除数值
 ```yaml
-- remove: { path: '/tmp/data' }
+ - copy: {path: '/name',value: '"trico真棒"'}
+ - echo: '$/name'
+ - remove: {path: '/name'}
+ - echo: '$/name'
 ```
