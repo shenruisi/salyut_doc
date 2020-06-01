@@ -5,7 +5,7 @@
 - segment: 
     package: '"包名"'
     name: '"函数名"'
-    args: {[0:][,1:][,2:]...[,49:]}
+    args: {[0:][, 1:][, 2:]...[, 49:]}
     body:
         执行语句
 ```
@@ -24,9 +24,9 @@
 ```yaml
 - segment:
     package: '"trico"'
-    name: '"_concat"' 
+    name: '"concat"' 
     args: {0: '/x',1: '/y'} 
     body:
-      - put: {value: '$/x+$/y',path: '/z'}
-      - return: '$/z'
+        - put: {value: '$/x+$/y',path: '/z'}
+        - return: '$/z'
 ```
