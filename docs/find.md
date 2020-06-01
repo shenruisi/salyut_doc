@@ -40,7 +40,7 @@
 - find: { ele: '#menu' }
 - if: '$1'
 - then:
-  - echo: '"find menu"'
+    - echo: '"find menu"'
 - else:
-  - echo: '"not found"'
+    - echo: '"not found"'
 ```

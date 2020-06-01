@@ -47,8 +47,8 @@
 - loop:
     in: {eles: 'div.item'}
     each:
-      - select: {ele: '.title', under: '$e', path: '/title'}
-      - select: {ele: '.price', parent: '$e', path: '/price'}
+        - select: {ele: '.title', under: '$e', path: '/title'}
+        - select: {ele: '.price', parent: '$e', path: '/price'}
 ```
 
 ## 片段样例
@@ -58,17 +58,17 @@
 - find: {ele: '#J_SaleBd'}
 - if: '$1'
 - then:
-	- echo: '"找到目标元素"'
+    - echo: '"找到目标元素"'
 - else:
-	- echo: '"没有找到目标元素"'
-	- return: '0'
+    - echo: '"没有找到目标元素"'
+    - return: '0'
 - js: '"window.scrollTo(0, document.querySelector(\"#J_SaleBd\").offsetTop)"'
 - wait: {type: '"presence"', ele: '#J_SaleBd .item'}
 - loop:
-	in: {eles: '#J_SaleBd .item'}
-	each:
-		- select: {ele: '.line-1', under: '$e', path: '/temp/title'}
-		- select: {ele: '.line-2 .comment', under: '$e', regex: '"(\\d+)"', path: '/temp/comment'}
-		- copy: { path: '/items[-1]', value: '$/temp'}
+    in: {eles: '#J_SaleBd .item'}
+    each:
+        - select: {ele: '.line-1', under: '$e', path: '/temp/title'}
+        - select: {ele: '.line-2 .comment', under: '$e', regex: '"(\\d+)"', path: '/temp/comment'}
+        - copy: { path: '/items[-1]', value: '$/temp'}
 - echo: '$/items'
 ```
