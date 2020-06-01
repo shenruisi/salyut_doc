@@ -36,6 +36,10 @@
 ```yaml
 - load: '"https://news.baidu.com/"'
 - click: { ele: '#channel-all div.menu-list li:nth-child(3)' }
+- loop:
+    in: { eles: '#channel-all div.menu-list ul li.lavalamp-item' }
+    each:
+      - click: { ele: 'a',under: '$e' }
 ```
 
 
