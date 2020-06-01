@@ -27,6 +27,6 @@
     name: '"concat"' 
     args: {0: '/x',1: '/y'} 
     body:
-      - put: {value: '$/x+$/y',path: '/z'}
-      - return: '$/z'
+        - put: {value: '$/x+$/y',path: '/z'}
+        - return: '$/z'
 ```
