@@ -17,7 +17,7 @@
 - fill: { ele: '#input', value: '"hello word!"' }
 ```
 ## 示例
-```
+```yaml
 - segment:
     name: '"fill_test"'
     body:
