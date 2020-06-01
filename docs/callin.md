@@ -9,9 +9,9 @@
 ## 属性
 | 属性 | 类型 | 是否必须 | 备注 |
 |--------|--------|--------|--------|
-|   package   | [string](datatype.md)  | √ |   |
-|   seg   | [string](datatype.md)  | √ |   |
-|   0...49   | [string](datatype.md) | x  |   |
+|   package   | [expr](datatype.md)  | √ |   |
+|   seg   | [expr](datatype.md)  | √ |   |
+|   0...49   | [expr](datatype.md) | x  |   |
 
 ## 用法
 ### 调用自定义concat函数
@@ -21,8 +21,8 @@
     name: '"concat"' 
     args: {0: '/x',1: '/y'} 
     body:
-      - put: {value: '$/x+$/y', path: '/z'}
-      - return: '$/z' 
+        - put: {value: '$/x+$/y', path: '/z'}
+        - return: '$/z' 
 - callin: { package: '"trico"', seg: '"concat"', 0: '"hello"', 1: '" world!"' }
 - echo: '$1'
 ```
