@@ -16,3 +16,14 @@
 ```yaml
 - dropdown: { ele: '#dropdown', value: '"select me"' }
 ```
+## 示例
+```yaml
+- segment:
+    name: '"dropdown_test"'
+    body:
+    - load: '"https://www.w3school.com.cn/tiy/t.asp?f=html_dropdownbox"'
+    - js: '"document.getElementById(\"iframewrapper\").innerHTML=document.querySelector(\"#iframeResult\").contentDocument.querySelector(\"form\").innerHTML"'
+    - wait: { type: '"time"', millis: '2000' }
+    - dropdown: { ele: 'select', value: '"Saab"'}
+- callin: { seg: '"dropdown_test"' }
+```
