@@ -1,7 +1,7 @@
 site_name: 'Salyut'
 site_author: 'Trico Dev'
 
-copyright: 'Copyright &copy; 2019 Trico'
+copyright: 'Copyright &copy; 2019-2020 Salyut.'
 theme:
   name: 'material'
   feature:
@@ -12,9 +12,10 @@ theme:
   logo: './img/icon.png'
 extra:
   manifest: 'manifest.webmanifest'
-  social:
-    - type: 'github'
-    - link: 'http://gitlab.taofen8.com/open-source/salyut'
+
+repo_name: salyut doc
+repo_url: https://github.com/shenruisi/salyut_doc
+
 nav:
   - Overview: 
        - 什么是Salyut: 'overview.md'
