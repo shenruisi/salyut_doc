@@ -12,9 +12,9 @@
 |   path   | [path](datatype.md)  |  √ |   |
 
 
-## 用法
-### 存储地址栏内容
+## 片段样例
 ```yaml
 - load: '"https://news.baidu.com/"'
 - addressbar: { path: '/currentAddress' }
 ```
+

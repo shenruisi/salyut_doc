@@ -11,13 +11,13 @@
 
 ## 用法
 ```yaml
-- put: { path: '/input', value: '1' }
-- if: '$/input < 2'
+#>elif作用示例,条件判断
+- if: '1 > 2'
 - then:
-  - echo: '"less then!"'
-- elif: '$/input == 2'
+    - echo: '"1大于2"'
+- elif: '1 < 2'
 - then:
-  - echo: '"equal!"'
+    - echo: '"1小于2"'
 - else:
-  - echo: '"great then!"'
+    - echo: '"1不大于2"' 
 ```

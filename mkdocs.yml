@@ -5,7 +5,7 @@ site_url: https://www.trico.cloud/tricoDoc/overview/index.html
 repo_name: salyut doc
 repo_url: https://github.com/shenruisi/salyut_doc
 
-copyright: 'Copyright &copy; 2019 Trico'
+copyright: 'Copyright &copy; 2019-2020 Salyut.'
 theme:
   name: 'material'
   feature:

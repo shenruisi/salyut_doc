@@ -11,13 +11,12 @@
 
 ## 用法
 ```
-- put: { path: '/list', values: '1,2,3,4,5'}
+#>continue作用示例,跳过当前进入下一个
 - loop:
-    in: {values: '$/list'} 
+    in: {start: '0',end: '10',step: '1'}
     each:
-      - if: '$/list[$i] == 3' 
+      - if: '$i == 3'
       - then:
-        - continue:
-      - else:
-        - echo '$v' 
+          - continue:
+      - echo: '$i'
 ```

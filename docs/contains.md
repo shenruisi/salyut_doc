@@ -17,8 +17,21 @@
 ## 用法
 ### 查找子串
 ```yaml
-- contains: {path: '/result', search: '"hello"'}
+#>contains示例 
+- copy: {path: '/name',value: '"trico真棒"'}
+- echo: '$/name'
+- contains: {path: '/name',search: '"trico"'}
 - if: '$1'
 - then:
-  - echo: '"contains"' 
+    - echo: '"存在"'
+- else:
+    - echo: '"不存在"'
+- put: {path: '/search',value: '"trico"'}
+- echo: '$/search'
+- contains: {path: '/name',search: '$/search'}
+- if: '$1'
+- then:
+    - echo: '"存在"'
+- else:
+    - echo: '"不存在"'   
 ```
