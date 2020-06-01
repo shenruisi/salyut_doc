@@ -1,5 +1,9 @@
 site_name: 'Salyut'
 site_author: 'Trico Dev'
+site_url: https://www.trico.cloud/tricoDoc/overview/index.html
+
+repo_name: salyut doc
+repo_url: https://github.com/shenruisi/salyut_doc
 
 copyright: 'Copyright &copy; 2019-2020 Salyut.'
 theme:
@@ -13,12 +17,9 @@ theme:
 extra:
   manifest: 'manifest.webmanifest'
 
-repo_name: salyut doc
-repo_url: https://github.com/shenruisi/salyut_doc
-
 nav:
   - Overview: 
-       - 什么是Salyut: 'overview.md'
+       - 什么是Salyut: 'index.md'
   - Getting Started:
        - 基本语法: 'grammar.md'
        - 数据类型: 'datatype.md'
