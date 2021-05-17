@@ -13,7 +13,11 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  logo: './img/icon.png'
+  palette:
+    primary: 'white'
+    accent: 'white'
+  
+#   logo: './img/icon.png'
 extra:
   manifest: 'manifest.webmanifest'
 
