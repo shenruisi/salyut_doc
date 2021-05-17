@@ -6,7 +6,7 @@
     in: { [eles:|values:|targets: [, start:][, end:][, step:]][, mutable:][, cond:][, parent:] }
     each:
 ```
-您可以通过**loop**来进行循环操作
+您可以通过**loop**标签来进行循环操作
 
 ## 属性
 | 属性 | 类型 | 是否必须 | 备注 |

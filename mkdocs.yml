@@ -5,7 +5,7 @@ site_url: https://www.trico.cloud/tricoDoc/overview/index.html
 repo_name: salyut doc
 repo_url: https://github.com/shenruisi/salyut_doc
 
-copyright: 'Copyright &copy; 2019-2020 Salyut.'
+copyright: 'Copyright &copy; 2019-2021 Salyut.'
 theme:
   name: 'material'
   feature:
@@ -16,6 +16,9 @@ theme:
   logo: './img/icon.png'
 extra:
   manifest: 'manifest.webmanifest'
+
+markdown_extensions:
+    - 'footnotes'
 
 nav:
   - Overview: 
@@ -31,6 +34,7 @@ nav:
        - 控件:
            - fill: 'fill.md'
            - dropdown: 'dropdown.md' 
+           - iframe: 'iframe.md'
        - 事件处理:
            - load: 'load.md'
            - click: 'click.md'
@@ -38,6 +42,9 @@ nav:
            - switchtab: 'switchtab.md'
            - closetab: 'closetab.md'
            - addressbar: 'addressbar.md'
+           - slide: 'slide.md'
+           - walkthrough: 'walkthrough.md'
+           - safeclick: 'safeclick.md'
        - 循环:
            - loop: 'loop.md'
            - break: 'break.md'
@@ -69,3 +76,7 @@ nav:
            - mobile: 'mobile.md'
        - 打印:
            - echo: 'echo.md'
+       - 异常:
+           - try: 'try.md'
+  - Changelog:
+    - 0.0.8.RC2: '008RC2.md'

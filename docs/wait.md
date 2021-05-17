@@ -27,6 +27,10 @@
 ```yaml
 - wait: { type: '"time"', millis: '2000' }
 ```
+### 等待某个元素可点击
+```yaml
+- wait: { type: '"clickable"',ele: '#button' }
+```
 
 ## 片段样例
 ```yaml
